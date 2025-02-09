@@ -17,7 +17,6 @@ function StudentCard({
 
   return (
     <div
-      key={student.serialNo}
       className={cn("rounded-md border-[1.5px] border-primary", {
         "border-border": student.guest,
       })}

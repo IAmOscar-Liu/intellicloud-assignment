@@ -156,22 +156,22 @@ function Grouplist({
   }, [studentlist]);
 
   return (
-    <div className="grid h-full overflow-y-auto px-8">
+    <div className="h-full overflow-y-auto px-8">
       <Accordion type="multiple" className="w-full">
         {grouplist.map((group) => (
-          <AccordionItem key={group.name} value={group.name}>
+          <AccordionItem key={group.id} value={group.name}>
             <AccordionTrigger>{group.name}</AccordionTrigger>
             <AccordionContent className="grid grid-cols-5 gap-3">
-              {group.members.map((serialNumber) => {
-                const student = studentMap.get(serialNumber);
-                return student ? (
+              {group.members
+                .map((serialNo) => studentMap.get(serialNo))
+                .filter((student) => student !== undefined)
+                .map((student) => (
                   <StudentCard
                     key={student.id}
                     classId={classId}
                     student={{ ...student, guest: false }}
                   />
-                ) : null;
-              })}
+                ))}
             </AccordionContent>
           </AccordionItem>
         ))}

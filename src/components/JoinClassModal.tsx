@@ -45,7 +45,7 @@ function JoinClassModal({
             <div className="flex items-center gap-2">
               <p>ID: {classInfo.id}</p>
               <CopyIcon
-                className="cursor-pointer rounded-sm bg-primary p-1 text-white"
+                className="size-7 cursor-pointer rounded-sm bg-primary p-1.5 text-white hover:bg-primary/90"
                 onClick={() =>
                   navigator.clipboard.writeText(classInfo.id).then(() => {
                     toast({
@@ -60,7 +60,7 @@ function JoinClassModal({
                 Link
               </a>
               <CopyIcon
-                className="cursor-pointer rounded-sm bg-primary p-1 text-white"
+                className="size-7 cursor-pointer rounded-sm bg-primary p-1.5 text-white hover:bg-primary/90"
                 onClick={() =>
                   navigator.clipboard.writeText(QRCODE_LINK).then(() => {
                     toast({

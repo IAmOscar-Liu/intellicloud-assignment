@@ -10,15 +10,15 @@ import {
 import { LifeBuoy, MoreVerticalIcon, Users } from "lucide-react";
 import { Button } from "./ui/button";
 
-function ClassDetailDropdownMenu() {
+function ClassDetailDropdownMenu({
+  menuTriggerClass,
+}: {
+  menuTriggerClass?: string;
+}) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button
-          variant="ghost"
-          size="icon"
-          className="-translate-y-1 hover:bg-border"
-        >
+        <Button variant="ghost" size="icon" className={menuTriggerClass}>
           <MoreVerticalIcon />
         </Button>
       </DropdownMenuTrigger>

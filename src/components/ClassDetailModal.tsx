@@ -102,7 +102,7 @@ function ClassDetailModal({
                   Group
                 </button>
               </div>
-              <ClassDetailDropdownMenu />
+              <ClassDetailDropdownMenu menuTriggerClass="-translate-y-1 hover:bg-border" />
             </div>
             {!studentlist || !grouplist ? (
               <div className="flex h-full items-center justify-center gap-3">

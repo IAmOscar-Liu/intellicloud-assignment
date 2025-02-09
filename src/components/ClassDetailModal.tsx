@@ -71,7 +71,10 @@ function ClassDetailModal({
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="min-w-[700px] bg-secondary">
+      <DialogContent
+        aria-describedby={undefined}
+        className="min-w-[700px] bg-secondary"
+      >
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2 text-xl">
             {classInfo.classroom} {classInfo.subject}{" "}
@@ -99,7 +102,7 @@ function ClassDetailModal({
                   Group
                 </button>
               </div>
-              <ClassDetailDropdownMenu triggerClassname="mb-2 size-8 rounded-sm px-1.5 py-0.5 transition-colors hover:bg-border" />
+              <ClassDetailDropdownMenu />
             </div>
             {!studentlist || !grouplist ? (
               <div className="flex h-full items-center justify-center gap-3">

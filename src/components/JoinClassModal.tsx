@@ -3,6 +3,7 @@ import {
   DialogContent,
   DialogFooter,
   DialogHeader,
+  DialogTitle,
 } from "@/components/ui/dialog";
 import { QRCODE_LINK } from "@/constants";
 import { useToast } from "@/hooks/use-toast";
@@ -23,20 +24,25 @@ function JoinClassModal({
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="w-[500px] bg-secondary">
+      <DialogContent
+        aria-describedby={undefined}
+        className="w-[500px] bg-secondary"
+      >
         <DialogHeader>
           <p
-            className="flex w-[max-content] cursor-pointer items-center gap-2 font-semibold"
+            className="group/goback flex w-[max-content] cursor-pointer items-center gap-2 text-sm font-semibold"
             onClick={() => setIsOpen(false)}
           >
             <ChevronLeftIcon className="size-4" />
-            Back to Class List
+            <span className="group-hover/goback:underline">
+              Back to Class List
+            </span>
           </p>
-          <h1 className="font-bold">
+          <DialogTitle className="text-lg font-bold">
             Join {classInfo.classroom} {classInfo.subject}
-          </h1>
-          <div className="flex gap-4 pt-2 font-bold">
-            <div className="flex gap-2">
+          </DialogTitle>
+          <div className="flex gap-4 pt-2 text-lg font-bold">
+            <div className="flex items-center gap-2">
               <p>ID: {classInfo.id}</p>
               <CopyIcon
                 className="cursor-pointer rounded-sm bg-primary p-1 text-white"
@@ -49,7 +55,7 @@ function JoinClassModal({
                 }
               />
             </div>
-            <div className="flex gap-2">
+            <div className="flex items-center gap-2">
               <a href={QRCODE_LINK} target="_blank" rel="noopener noreferrer">
                 Link
               </a>

@@ -1,4 +1,3 @@
-import { LifeBuoy, MoreVerticalIcon, Users } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,17 +7,20 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { cn } from "@/lib/utils";
+import { LifeBuoy, MoreVerticalIcon, Users } from "lucide-react";
+import { Button } from "./ui/button";
 
-function ClassDetailDropdownMenu({
-  triggerClassname,
-}: {
-  triggerClassname?: string;
-}) {
+function ClassDetailDropdownMenu() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <MoreVerticalIcon className={cn("cursor-pointer", triggerClassname)} />
+        <Button
+          variant="ghost"
+          size="icon"
+          className="-translate-y-1 hover:bg-border"
+        >
+          <MoreVerticalIcon />
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
         className="w-40"

@@ -19,6 +19,7 @@ import {
   SquareMousePointerIcon,
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
+import { shallowEqual } from "react-redux";
 import ClassDetailModal from "./ClassDetailModal";
 import JoinClassModal from "./JoinClassModal";
 import { Button } from "./ui/button";
@@ -29,7 +30,13 @@ function ClassTable({ className }: { className?: string }) {
   const [selectedClassId, setSelectedClassId] = useState<string | undefined>(
     undefined,
   );
-  const { isLoading, classlist } = useAppSelector((state) => state.class);
+  const { isLoading, classlist } = useAppSelector(
+    (state) => ({
+      isLoading: state.class.isLoading,
+      classlist: state.class.classlist,
+    }),
+    shallowEqual,
+  );
   const dispatch = useAppDispatch();
 
   const selectedClass = useMemo(() => {
@@ -40,6 +47,7 @@ function ClassTable({ className }: { className?: string }) {
   useEffect(() => {
     dispatch(getAllClasses());
   }, []);
+  // console.log("ClassTable rerender");
 
   return (
     <>
